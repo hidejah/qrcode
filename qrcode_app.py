@@ -5,6 +5,7 @@ import streamlit as st
 
 
 FILE_NAME = 'qrcode.png'
+Path('imgs').mkdir(exist_ok=True)
 qrcode_img_path = Path('imgs').joinpath(FILE_NAME)
 
 error_correction_dict = {
