@@ -1,5 +1,4 @@
 from pathlib import Path
-# from PIL import Image
 import qrcode
 import streamlit as st
 
@@ -30,51 +29,13 @@ setting = st.radio(
 )
 
 if setting == "詳細設定":
-    version = st.selectbox(
-        "生成されるQRコードのバージョン",
-        (
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31",
-            "32",
-            "33",
-            "34",
-            "35",
-            "36",
-            "37",
-            "38",
-            "39",
-            "40",
-        )
+    version = st.slider(
+        "生成されるQRコードのバージョン（デフォルト1）",
+        min_value=1,
+        max_value=40,
+        value=1
     )
+    st.write(f"selected: {version}")
 
     error_correction = st.radio(
             "誤り訂正レベル",
