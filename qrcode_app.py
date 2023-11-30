@@ -1,4 +1,5 @@
 from pathlib import Path
+from PIL import Image
 import qrcode
 import streamlit as st
 
@@ -6,6 +7,18 @@ import streamlit as st
 FILE_NAME = 'qrcode.png'
 Path('imgs').mkdir(exist_ok=True)
 qrcode_img_path = Path('imgs').joinpath(FILE_NAME)
+favicon_img_path = Path('favicon.png')
+
+st.set_page_config(
+    page_title="QRcode Generator App",
+    page_icon=Image.open(favicon_img_path),
+    layout="centered",
+    menu_items={
+         'About': """
+         # QRコード生成アプリ
+         このアプリはQRコードを生成するアプリです。
+         """
+     })
 
 error_correction_dict = {
     "レベルL（約7%）": qrcode.constants.ERROR_CORRECT_L,
