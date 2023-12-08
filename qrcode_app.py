@@ -14,26 +14,26 @@ if img_paths:
 favicon_img_path = Path('favicon.png')
 
 st.set_page_config(
-    page_title="QRcode App",
+    page_title='QRcode App',
     page_icon=Image.open(favicon_img_path),
-    layout="centered",
+    layout='centered',
     menu_items={
-         'About': """
-         # QRコード生成/読み込みアプリ
-         このアプリはQRコードを生成/読み込みするアプリです。
-         """
+        'About': '''
+        # QRコード生成/読み込みアプリ
+        このアプリはQRコードを生成/読み込みするアプリです。
+        '''
     }
 )
 
 # サイドバーで選択するアプリページの設定
 PAGES = {
-    "GeneratorApp": generator,
-    "ReaderApp": reader,
+    'GeneratorApp': generator,
+    'ReaderApp': reader,
 }
 
 selection = st.sidebar.radio(
-    "select app",
-    tuple(PAGES.keys()),
+    'select app',
+    list(PAGES.keys()),
 )
 
 page = PAGES[selection]

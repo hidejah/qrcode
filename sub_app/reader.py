@@ -1,4 +1,4 @@
-import pyzbar
+from pyzbar.pyzbar import decode
 from PIL import Image
 import streamlit as st
 
@@ -12,7 +12,7 @@ def app():
     )
 
     if uploaded_file is not None:
-        qrcode = pyzbar.pyzbar.decode(Image.open(uploaded_file))
+        qrcode = decode(Image.open(uploaded_file))
         if qrcode:
             read_text = qrcode[0].data.decode('utf-8')
             md = f'''
