@@ -15,13 +15,8 @@ def app():
         qrcode = decode(Image.open(uploaded_file))
         if qrcode:
             read_text = qrcode[0].data.decode('utf-8')
-            md = f'''
-            ##### {read_text}
-            '''
-            left_col, center_col, right_col = st.columns(3)
-            left_col.write('read_data:')
-            center_col.markdown(md)
-            right_col.write('')
+            read_text = qrcode[0].data.decode('utf-8')
+            st.code('< read_data >{}{}'.format('\n', read_text))
         else:
             st.write(
                 '<font color="Red">※読み込みエラー！QRコード画像を確認してください</font>',
